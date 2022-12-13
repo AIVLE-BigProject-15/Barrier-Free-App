@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # kiosk
 
 A new Flutter project.
@@ -14,3 +15,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# Kiosk-App
+AIVLE School Big-Project
+>>>>>>> f2ba2d02e644a713aa039a9b7786050603c88a9e
