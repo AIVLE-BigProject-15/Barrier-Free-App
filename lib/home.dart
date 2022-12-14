@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last, deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:kiosk/orderType.dart';
 import 'camera.dart';
 
 class MyHomePage extends StatelessWidget {
