@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'orderType.dart';
 
 class CameraForAging extends StatefulWidget {
   const CameraForAging({super.key});
@@ -27,21 +28,57 @@ class _CameraForAgingState extends State<CameraForAging> {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('얼굴을 알려주세요!\n맞춤 메뉴를 추천해드릴게요!😁😀'),
+            IconButton(
+              icon: Icon(Icons.arrow_back_ios_new),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+            SizedBox(height: 5,),
+            Text(
+              '얼굴을 알려주세요!\n맞춤 메뉴를 추천해드릴게요!😁😀', 
+              style: TextStyle(
+                fontSize: 25, 
+                fontWeight: FontWeight.bold
+              )
+            ),
+            SizedBox(height: 20,),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(200, 50),
+              ),
               onPressed: () {
                 getImage(ImageSource.camera);
               }, 
-              child: Text('카메라로 사진 찍기')
+              child: Text(
+                '카메라로 사진 찍기',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                )
+              )
             ),
+            SizedBox(height: 10,),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(200, 50)
+              ),
               onPressed: () {
                 getImage(ImageSource.gallery);
               }, 
-              child: Text('사진첩에서 가져오기')
+              child: Text(
+                '사진첩에서 가져오기',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
             ),
+            SizedBox(height: 20,),
             showImage(),
+            SizedBox(height: 15,),
           ],
         )
       ),
@@ -51,7 +88,38 @@ class _CameraForAgingState extends State<CameraForAging> {
     if(_img == null){
       return Container();
     } else {
-      return Image.file(_img!);
+      return Column(
+        children: [
+          Image.file(
+            _img!, 
+            width: 300.0, 
+            height: 300.0,
+          ),
+          SizedBox(height: 10,),
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(200, 50),
+              ),
+              onPressed: (){
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(
+                    builder: (context) => const OrderType()
+                  )
+                );
+              }, 
+              child: Text(
+                '사진 선택 완료!',
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                ),
+              )
+            )
+
+        ]
+      );
+          
     }
   }
 }

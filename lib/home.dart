@@ -11,29 +11,32 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.greenAccent,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset('assets/img.gif'),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/img.gif', alignment: Alignment.center),
 
-          ElevatedButton(
-            onPressed: (){
-              Navigator.push(
-                context, 
-                MaterialPageRoute(
-                  builder: (context) => const CameraForAging()
-                )
-              );
-            }, 
-            style: ElevatedButton.styleFrom(
-            primary: Colors.yellow,
-            textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)
-          ),
-            child: Text('주문하기')
-          ),
-          
-        ],
-        
+            ElevatedButton(
+              onPressed: (){
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(
+                    builder: (context) => const CameraForAging()
+                  )
+                );
+              }, 
+              style: ElevatedButton.styleFrom(
+              primary: Colors.yellow,
+              textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)
+            ),
+              child: Text(
+                '주문하기',
+                style: TextStyle(color: Colors.green)
+              )
+            ),
+          ],
+        )     
       ),
     );
   }
