@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "732830278365",
+    "project_id": "big-project-8f890",
+    "storage_bucket": "big-project-8f890.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732830278365:android:7df8e6a20eb49653b0b134",
+        "android_client_info": {
+          "package_name": "com.example.kiosk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732830278365-v8a4nnu4hh3s8kgnhge7eur6deiho4p4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzjAb--zWD4KUmiEtL8aFQPkH2-ZoJVnE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732830278365-v8a4nnu4hh3s8kgnhge7eur6deiho4p4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
