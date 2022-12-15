@@ -13,9 +13,8 @@ class MyHomePage extends StatelessWidget {
 
     await FirebaseFirestore.instance
         .collection('users')
-        .doc('test')
-        .set({
-      'recentSignInAt': 'test',
+        .add({
+      '이름': true,
     });
   }
     return Scaffold(
