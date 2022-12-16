@@ -5,6 +5,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kiosk/home.dart';
 import 'itemProvider.dart';
+import 'detail.dart';
+import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // main 함수에서 async 사용하기 위함
@@ -22,13 +24,16 @@ class kioskApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ItemProvider()),
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Kiosk App',
         theme: ThemeData(
           primarySwatch: Colors.green,
         ),
-        home: MyHomePage()
+        home: MyHomePage(),
+        routes: {
+          '/detail': (context) => Detail(),
+        },
       )
     );
   }

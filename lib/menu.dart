@@ -1,9 +1,10 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, avoid_unnecessary_containers
+// ignore_for_file: camel_case_types, prefer_const_constructors, avoid_unnecessary_containers, prefer_is_empty
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'itemProvider.dart';
 import 'package:flutter/cupertino.dart';
+import 'detail.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -84,7 +85,8 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin{
                             return GridTile(
                               child: InkWell(
                                 onTap: (){
-
+                                  Navigator.pushNamed(context, '/detail', 
+                                  arguments: itemProvider.coffeeItems[index]);
                                 },
                                 child: Container(
                                   padding: EdgeInsets.all(10),
@@ -119,7 +121,8 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin{
                             return GridTile(
                               child: InkWell(
                                 onTap: (){
-
+                                  Navigator.pushNamed(context, '/detail', 
+                                  arguments: itemProvider.nonCoffeeItems[index]);
                                 },
                                 child: Container(
                                   padding: EdgeInsets.all(10),
@@ -154,7 +157,8 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin{
                             return GridTile(
                               child: InkWell(
                                 onTap: (){
-
+                                  Navigator.pushNamed(context, '/detail', 
+                                  arguments: itemProvider.breadItems[index]);
                                 },
                                 child: Container(
                                   padding: EdgeInsets.all(10),
