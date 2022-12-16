@@ -3,8 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'itemProvider.dart';
-import 'package:flutter/cupertino.dart';
-import 'detail.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
