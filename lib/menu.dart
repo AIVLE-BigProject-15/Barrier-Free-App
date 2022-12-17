@@ -26,6 +26,7 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin{
   Widget build(BuildContext context) {
     final itemProvider = Provider.of<ItemProvider>(context);
     return FutureBuilder(
+      
       future: itemProvider.fetchItems(),
       builder: (context, snapshot) {
         if (itemProvider.coffeeItems.length == 0) {
@@ -34,15 +35,12 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin{
           );
         } else {
           return Scaffold(
+              appBar: AppBar(
+              title: Text('MENU'),
+              elevation: 0.0,
+            ),
             body: Column(
               children: [
-                IconButton(
-                  icon: Icon(Icons.arrow_back_ios_new),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-
                 TabBar(
                   tabs: [
                     Container(
@@ -180,14 +178,22 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin{
                           }
                         )
                       ),
-
                     ]
                   ),
                 ),
-
               ],
-
+              
             ),
+            floatingActionButton: Container(
+              height: 70,
+              width: 70,
+              child: FloatingActionButton(
+                onPressed:(){
+
+                },
+                child: Icon(Icons.shopping_cart, size: 40,),
+              ),
+            )
           );
         }
       }

@@ -40,23 +40,33 @@ class _DetailState extends State<Detail> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(onPressed: (){
-                  controller.remove();
-                }, 
-                icon: Icon(Icons.remove_circle_outline)),
+                IconButton(
+                  onPressed: (){
+                    controller.remove();
+                  }, 
+                  icon: Icon(Icons.remove_circle_outline, size: 30,)
+                ),
                 Obx(
                   () => Text(
-                    '${controller.quantity.value}'
+                    '${controller.quantity.value}',
+                    style: TextStyle(fontSize: 25),
                   ),
                 ),
-                IconButton(onPressed: (){
-                  controller.add();
-                }, 
-                icon: Icon(Icons.add_circle_outline)),
+                IconButton(
+                  onPressed: (){
+                    controller.add();
+                  }, 
+                  icon: Icon(Icons.add_circle_outline, size: 30,)
+                ),
               ],
             ),
             Padding(padding: EdgeInsets.all(10)),
-            Text(item.description,),
+            Text(
+              item.description, 
+              style: TextStyle(
+                fontSize: 20
+              ),
+            ),
             Spacer(),
             Container(
               height: 70,
@@ -80,9 +90,9 @@ class _DetailState extends State<Detail> {
                   ),
                   Obx(
                     () => Text(
-                      '\t\t\t\t\t${(controller.quantity.value)*item.price}원',
+                      '\t\t\t\t${(controller.quantity.value)*item.price}원',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 25,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
