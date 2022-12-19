@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'items.dart';
 import 'package:kiosk/controller.dart';
+import 'model_cart.dart';
 
 class Detail extends StatefulWidget {
   const Detail({super.key});
@@ -81,7 +82,7 @@ class _DetailState extends State<Detail> {
                       fixedSize: Size(100, 70)
                     ),
                     onPressed: (){
-
+                      CartModel.addCart(item.menu, controller.quantity, item.img, item.price);
                     }, 
                     child: Text(
                       '장바구니',
