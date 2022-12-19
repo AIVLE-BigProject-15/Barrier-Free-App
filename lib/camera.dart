@@ -26,17 +26,14 @@ class _CameraForAgingState extends State<CameraForAging> {
       });
     }
     return Scaffold(
+      appBar: AppBar(
+        
+      ),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            IconButton(
-              icon: Icon(Icons.arrow_back_ios_new),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            SizedBox(height: 5,),
+            SizedBox(height: 50,),
             Text(
               '얼굴을 알려주세요!\n맞춤 메뉴를 추천해드릴게요!😁😀', 
               style: TextStyle(
@@ -76,9 +73,9 @@ class _CameraForAgingState extends State<CameraForAging> {
                 ),
               )
             ),
-            SizedBox(height: 20,),
+            // SizedBox(height: 15,),
             showImage(),
-            SizedBox(height: 15,),
+            // SizedBox(height: 15,),
           ],
         )
       ),
@@ -93,7 +90,7 @@ class _CameraForAgingState extends State<CameraForAging> {
           Image.file(
             _img!, 
             width: 300.0, 
-            height: 300.0,
+            height: 200.0,
           ),
           SizedBox(height: 10,),
           ElevatedButton(

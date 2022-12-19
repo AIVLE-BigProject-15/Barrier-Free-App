@@ -9,50 +9,50 @@ class OrderType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          IconButton(
-            icon: Icon(Icons.arrow_back_ios_new),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          TextButton(
-            style: (
-              TextButton.styleFrom(
-                foregroundColor: Colors.green,
-                backgroundColor: Colors.yellow,
-                minimumSize: Size(500, 300),
-                textStyle: TextStyle(
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
+      appBar: AppBar(
+        
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              style: (
+                TextButton.styleFrom(
+                  foregroundColor: Colors.green,
+                  backgroundColor: Colors.yellow,
+                  minimumSize: Size(300, 100),
+                  textStyle: TextStyle(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                  )
                 )
-              )
-            ),
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const Menu()));
-            }, 
-            child: Text('먹고가기')
-            ),
-
-          TextButton(
-            style: (
-              TextButton.styleFrom(
-                foregroundColor: Colors.yellow,
-                backgroundColor: Colors.green,
-                minimumSize: Size(500, 300),
-                textStyle: TextStyle(
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold
+              ),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Menu()));
+              }, 
+              child: Text('먹고가기')
+              ),
+            SizedBox(height: 60,),
+            TextButton(
+              style: (
+                TextButton.styleFrom(
+                  foregroundColor: Colors.yellow,
+                  backgroundColor: Colors.green,
+                  minimumSize: Size(300, 100),
+                  textStyle: TextStyle(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold
+                  )
                 )
-              )
-            ),
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const Menu()));
-            }, 
-            child: Text('포장하기')
-            ),
-        ],
+              ),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Menu()));
+              }, 
+              child: Text('포장하기')
+              ),
+          ],
+        ),
       ),
     );
   }

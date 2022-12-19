@@ -14,7 +14,23 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/img.gif', alignment: Alignment.center),
+            Text(
+              '모두를 위한 키오스크:',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Colors.green[800]
+              ),
+            ),
+            Text(
+              '키슈(KIosk IS YOU)',
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: Colors.green[800]
+              ),
+            ),
+            SizedBox(height: 90,),
             ElevatedButton(
               onPressed: (){
                 Navigator.push(
