@@ -5,7 +5,6 @@ class CountController extends GetxController {
 
   void add() {
     quantity.value++;
-    // count(count.value + 1);
   }
   void remove() {
     quantity.value--;

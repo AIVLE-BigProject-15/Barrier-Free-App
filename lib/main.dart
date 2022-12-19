@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kiosk/home.dart';
+import 'cartProvider.dart';
 import 'itemProvider.dart';
 import 'detail.dart';
 import 'package:get/get.dart';
@@ -23,6 +24,7 @@ class kioskApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ItemProvider()),
+        ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
