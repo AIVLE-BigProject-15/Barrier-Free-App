@@ -30,8 +30,8 @@ class kioskApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Kiosk App',
         theme: ThemeData(
-          fontFamily: 'Pretendard',
-          primarySwatch: Colors.green,
+          fontFamily: 'LEEJW',
+          primaryColor: Colors.white,
         ),
         home: MyHomePage(),
         routes: {

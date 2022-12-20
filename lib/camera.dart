@@ -27,57 +27,73 @@ class _CameraForAgingState extends State<CameraForAging> {
     }
     return Scaffold(
       appBar: AppBar(
-        
+        elevation: 0.0,
+        backgroundColor: Color(0xfff2f2f2),
+        foregroundColor: Color(0xffe51937),
+        title: Text(
+          'Back',
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 25
+          ),
+        ),
       ),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(height: 50,),
-            Text(
-              '얼굴을 알려주세요!\n맞춤 메뉴를 추천해드릴게요!😁😀', 
-              style: TextStyle(
-                fontSize: 25, 
-                fontWeight: FontWeight.bold
-              )
-            ),
-            SizedBox(height: 20,),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(200, 50),
-              ),
-              onPressed: () {
-                getImage(ImageSource.camera);
-              }, 
-              child: Text(
-                '카메라로 사진 찍기',
+      backgroundColor: Color(0xfff2f2f2),
+      body: Center(
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: 50,),
+              Text(
+                '얼굴을 알려주세요!\n맞춤 메뉴를 추천해드릴게요!', 
                 style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 25, 
+                  fontWeight: FontWeight.w800
                 )
-              )
-            ),
-            SizedBox(height: 10,),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(200, 50)
               ),
-              onPressed: () {
-                getImage(ImageSource.gallery);
-              }, 
-              child: Text(
-                '사진첩에서 가져오기',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+              SizedBox(height: 20,),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(210, 50),
+                  backgroundColor: Color(0xffffffff),
+                  foregroundColor: Colors.black
                 ),
-              )
-            ),
-            // SizedBox(height: 15,),
-            showImage(),
-            // SizedBox(height: 15,),
-          ],
-        )
+                onPressed: () {
+                  getImage(ImageSource.camera);
+                }, 
+                child: Text(
+                  '카메라로 사진 찍기',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800,
+                  )
+                )
+              ),
+              SizedBox(height: 10,),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(210, 50),
+                  backgroundColor: Color(0xffffffff),
+                  foregroundColor: Color(0xff000000)
+                ),
+                onPressed: () {
+                  getImage(ImageSource.gallery);
+                }, 
+                child: Text(
+                  '사진첩에서 가져오기',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800,
+                  ),
+                )
+              ),
+              SizedBox(height: 15,),
+              showImage(),
+              SizedBox(height: 15,),
+            ],
+          )
+        ),
       ),
     );
   }
@@ -94,26 +110,28 @@ class _CameraForAgingState extends State<CameraForAging> {
           ),
           SizedBox(height: 10,),
           ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(200, 50),
+            style: ElevatedButton.styleFrom(
+              fixedSize: Size(230, 50),
+              backgroundColor: Color(0xffffffff),
+              foregroundColor: Colors.black
+            ),
+            onPressed: (){
+              Navigator.push(
+                context, 
+                MaterialPageRoute(
+                  builder: (context) => const OrderType()
+                )
+              );
+            }, 
+            child: Text(
+              '사진 선택 완료!',
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffe51937)
               ),
-              onPressed: (){
-                Navigator.push(
-                  context, 
-                  MaterialPageRoute(
-                    builder: (context) => const OrderType()
-                  )
-                );
-              }, 
-              child: Text(
-                '사진 선택 완료!',
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                ),
-              )
             )
-
+          )
         ]
       );
           

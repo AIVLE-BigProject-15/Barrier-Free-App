@@ -9,51 +9,99 @@ class OrderType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xfff2f2f2),
       appBar: AppBar(
-        
+        elevation: 0.0,
+        backgroundColor: Color(0xfff2f2f2),
+        foregroundColor: Color(0xffe51937),
+        title: Text(
+          'Camera',
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 25
+          ),
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextButton(
-              style: (
-                TextButton.styleFrom(
-                  foregroundColor: Colors.green,
-                  backgroundColor: Colors.yellow,
-                  minimumSize: Size(300, 100),
-                  textStyle: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
+            Text(
+              '모두를 위한 키오스크: 키슈(KIosk IS YOU)',
+              style: TextStyle(
+                fontSize: 20,
+                color: Color(0xffe51237)
+              ),
+            ),
+            SizedBox(height: 10,),
+            Text(
+              '어서오세요! 에이블 카페입니다 :)',
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.w800,
+                color: Color(0xffe51237)
+              ),
+            ),
+            SizedBox(height: 30,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+              ElevatedButton(
+                style: (
+                  ElevatedButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    backgroundColor: Color(0xffffffff),
+                    elevation: 1.5,
+                    fixedSize: Size(150, 150),
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    )
                   )
+                ),
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Menu()));
+                }, 
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    Image.asset('assets/images/shoppingBag.png', width: 100, height: 100,),
+                    Text('방문포장')
+                  ],
                 )
               ),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const Menu()));
-              }, 
-              child: Text('먹고가기')
-              ),
-            SizedBox(height: 60,),
-            TextButton(
-              style: (
-                TextButton.styleFrom(
-                  foregroundColor: Colors.yellow,
-                  backgroundColor: Colors.green,
-                  minimumSize: Size(300, 100),
-                  textStyle: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold
+              SizedBox(width: 20,),
+              ElevatedButton(
+                style: (
+                  ElevatedButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    backgroundColor: Color(0xffffffff),
+                    elevation: 1.5,
+                    fixedSize: Size(150, 150),
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    )
                   )
+                ),
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Menu()));
+                }, 
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    Image.asset('assets/images/fork.png', width: 100, height: 100,),
+                    Text('매장식사')
+                  ],
                 )
               ),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const Menu()));
-              }, 
-              child: Text('포장하기')
-              ),
-          ],
+              ],
+            )
+              ]
+            )
         ),
-      ),
     );
   }
 }

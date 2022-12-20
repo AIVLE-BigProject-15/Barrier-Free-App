@@ -9,7 +9,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.greenAccent,
+      backgroundColor: Color(0xfff2f2f2),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -18,8 +18,8 @@ class MyHomePage extends StatelessWidget {
               '모두를 위한 키오스크:',
               style: TextStyle(
                 fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Colors.green[800]
+                fontWeight: FontWeight.w300,
+                color: Color(0xffe51937)
               ),
             ),
             Text(
@@ -27,10 +27,10 @@ class MyHomePage extends StatelessWidget {
               style: TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
-                color: Colors.green[800]
+                color: Color(0xffe51937)
               ),
             ),
-            SizedBox(height: 90,),
+            SizedBox(height: 30,),
             ElevatedButton(
               onPressed: (){
                 Navigator.push(
@@ -41,12 +41,17 @@ class MyHomePage extends StatelessWidget {
                 );
               }, 
               style: ElevatedButton.styleFrom(
-              primary: Colors.yellow,
-              textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)
-            ),
+                primary: Colors.white,
+                textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                fixedSize: Size(200, 70),
+                elevation: 1.5
+              ),
               child: Text(
                 '주문하기',
-                style: TextStyle(color: Colors.green)
+                style: TextStyle(
+                  color: Color(0xffe51937),
+                  fontWeight: FontWeight.w800
+                )
               )
             ),
           ],
