@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'cartProvider.dart';
 import 'model_cart.dart';
-import 'cartItems.dart';
 import 'pgpage.dart';
 
 class Cart extends StatelessWidget {
@@ -16,15 +14,24 @@ class Cart extends StatelessWidget {
     return FutureBuilder(
       future: cartItemProvider.fetchItems(),
       builder: (context, snapshot) {
-        if (cartItemProvider.cartItems.length == 0){
+        if (cartItemProvider.cartItems.isEmpty){
           return Center(
             child: CircularProgressIndicator(),
           );
         } else {
           return Scaffold(
+            backgroundColor: Color(0xffffffff),
             appBar: AppBar(
               elevation: 0.0,
-              title: Text('My Cart'),
+              backgroundColor: Color(0xffffffff),
+              foregroundColor: Color(0xffe51937),
+              title: Text(
+                'Cart',
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 25
+                ),
+              ),
             ),
             body: Column(
               children: [
@@ -79,12 +86,12 @@ class Cart extends StatelessWidget {
                 Spacer(),
                 Container(
                   height: 70,
-                  color: Colors.green[200],
+                  color: Color(0xfff2f2f2),
                   child: Row(
                     children: [
                       TextButton(
                         style: TextButton.styleFrom(
-                          backgroundColor: Colors.green,
+                          backgroundColor: Color(0xffe51937),
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
                           fixedSize: Size(100, 70)
@@ -110,8 +117,8 @@ class Cart extends StatelessWidget {
                         child: Text(
                           '결제하기',
                           style: TextStyle(
-                            backgroundColor: Colors.green[200],
-                            color: Colors.green,
+                            backgroundColor: Color(0xfff2f2f2),
+                            color: Color(0xffe51937),
                             fontSize: 30,
                             fontWeight: FontWeight.bold
                           ),
