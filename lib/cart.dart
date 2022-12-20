@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'cartProvider.dart';
 import 'model_cart.dart';
 import 'cartItems.dart';
+import 'pgpage.dart';
 
 class Cart extends StatelessWidget {
   const Cart({super.key});
@@ -99,7 +100,12 @@ class Cart extends StatelessWidget {
                       Spacer(),
                       TextButton(
                         onPressed: (){
-
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const pgpage()
+                            )
+                          );
                         }, 
                         child: Text(
                           '결제하기',

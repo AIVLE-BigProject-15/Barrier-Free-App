@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:bootpay/bootpay.dart';
 import 'package:bootpay/model/extra.dart';
 import 'package:bootpay/model/item.dart';
@@ -52,11 +51,12 @@ class _MyPgPage extends State<pgpage> {
                   )),
               SizedBox(
                   width: 200,
-                  height: 200,
+                  height: 100,
                   child: IconButton(
                     padding: EdgeInsets.all(0),
                     icon: Image.asset(
                       'assets/images/payco.png',
+                      width: 200, height: 200,
                     ),
                     onPressed: () => payTest(context, 'payco', 'easy'),
                   )),

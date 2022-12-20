@@ -20,12 +20,18 @@ class _DetailState extends State<Detail> {
   Widget build(BuildContext context) {
     final item = ModalRoute.of(context)!.settings.arguments as Items;
     return Scaffold(
-      appBar: AppBar(title: Text(item.menu)),
+      appBar: AppBar(
+        title: Text(
+          item.menu
+        )
+      ),
       body: Center(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          Padding(padding: EdgeInsets.all(10)),
-          Image.network(item.img),
-          Padding(padding: EdgeInsets.all(10)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center, 
+          children: [
+            Padding(padding: EdgeInsets.all(10)),
+            Image.network(item.img),
+            Padding(padding: EdgeInsets.all(10)),
           Text(
             item.menu,
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
@@ -33,20 +39,24 @@ class _DetailState extends State<Detail> {
           Text(
             '${item.price}원',
             style: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.green),
+              fontSize: 20, 
+              fontWeight: FontWeight.bold, 
+              color: Colors.green
+            ),
           ),
           Padding(padding: EdgeInsets.all(5)),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
-                  onPressed: () {
-                    controller.remove();
-                  },
-                  icon: Icon(
-                    Icons.remove_circle_outline,
-                    size: 30,
-                  )),
+                onPressed: () {
+                  controller.remove();
+                },
+                icon: Icon(
+                  Icons.remove_circle_outline,
+                  size: 30,
+                )
+              ),
               Obx(
                 () => Text(
                   '${controller.quantity.value}',
@@ -54,13 +64,14 @@ class _DetailState extends State<Detail> {
                 ),
               ),
               IconButton(
-                  onPressed: () {
-                    controller.add();
-                  },
-                  icon: Icon(
-                    Icons.add_circle_outline,
-                    size: 30,
-                  )),
+                onPressed: () {
+                  controller.add();
+                },
+                icon: Icon(
+                  Icons.add_circle_outline,
+                  size: 30,
+                )
+              ),
             ],
           ),
           Padding(padding: EdgeInsets.all(10)),
@@ -75,21 +86,23 @@ class _DetailState extends State<Detail> {
             child: Row(
               children: [
                 TextButton(
-                    style: TextButton.styleFrom(
-                        backgroundColor: Colors.green,
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.zero),
-                        fixedSize: Size(100, 70)),
-                    onPressed: () {
-                      CartModel.addCart(
-                          item.menu, controller.quantity, item.img, item.price);
-                    },
-                    child: Text(
-                      '장바구니',
-                      style: TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.normal),
-                    )),
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+                    fixedSize: Size(100, 70)
+                  ),
+                  onPressed: () {
+                    CartModel.addCart(item.menu, controller.quantity, item.img, item.price);
+                  },
+                  child: Text(
+                    '장바구니',
+                    style: TextStyle(
+                      fontSize: 20, 
+                      fontWeight: FontWeight.normal
+                    ),
+                  )
+                ),
                 Obx(
                   () => Text(
                     '\t\t\t\t${(controller.quantity.value) * item.price}원',
@@ -101,22 +114,25 @@ class _DetailState extends State<Detail> {
                 ),
                 Spacer(),
                 TextButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => pgpage()));
-                    },
-                    child: Text(
-                      '주문하기',
-                      style: TextStyle(
-                          backgroundColor: Colors.green[200],
-                          color: Colors.green,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold),
-                    ))
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => pgpage()));
+                  },
+                  child: Text(
+                    '주문하기',
+                    style: TextStyle(
+                      backgroundColor: Colors.green[200],
+                      color: Colors.green,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold
+                    ),
+                  )
+                )
               ],
             ),
-          )
-        ]),
+            )
+          ]
+        ),
       ),
     );
   }
