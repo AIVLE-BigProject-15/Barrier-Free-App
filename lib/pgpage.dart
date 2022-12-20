@@ -1,13 +1,12 @@
+// ignore_for_file: camel_case_types, prefer_const_constructors, avoid_print
+
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:bootpay/bootpay.dart';
 import 'package:bootpay/model/extra.dart';
 import 'package:bootpay/model/item.dart';
 import 'package:bootpay/model/payload.dart';
-import 'package:bootpay/model/stat_item.dart';
 import 'package:bootpay/model/user.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 
 class pgpage extends StatefulWidget {
   const pgpage({super.key});
@@ -23,7 +22,18 @@ class _MyPgPage extends State<pgpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+              elevation: 0.0,
+              backgroundColor: Color(0xffffffff),
+              foregroundColor: Color(0xffe51937),
+              title: Text(
+                'Order',
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 25
+                ),
+              ),
+            ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 50.0),
@@ -87,7 +97,7 @@ class _MyPgPage extends State<pgpage> {
       onClose: () {
         print('------- onClose');
         Bootpay().dismiss(context); //명시적으로 부트페이 뷰 종료 호출
-        //TODO - 원하시는 라우터로 페이지 이동
+        //TO_DO - 원하시는 라우터로 페이지 이동
       },
       onIssued: (String data) {
         print('------- onIssued: $data');

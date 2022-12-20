@@ -21,10 +21,17 @@ class _DetailState extends State<Detail> {
     final item = ModalRoute.of(context)!.settings.arguments as Items;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          item.menu
-        )
-      ),
+              elevation: 0.0,
+              backgroundColor: Color(0xffffffff),
+              foregroundColor: Color(0xffe51937),
+              title: Text(
+                item.menu,
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 25
+                ),
+              ),
+            ),
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center, 
@@ -41,7 +48,7 @@ class _DetailState extends State<Detail> {
             style: TextStyle(
               fontSize: 20, 
               fontWeight: FontWeight.bold, 
-              color: Colors.green
+              color: Color(0xffe51937)
             ),
           ),
           Padding(padding: EdgeInsets.all(5)),
@@ -55,12 +62,13 @@ class _DetailState extends State<Detail> {
                 icon: Icon(
                   Icons.remove_circle_outline,
                   size: 30,
+                  color: Color(0xffe51937),
                 )
               ),
               Obx(
                 () => Text(
                   '${controller.quantity.value}',
-                  style: TextStyle(fontSize: 25),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
               ),
               IconButton(
@@ -70,6 +78,7 @@ class _DetailState extends State<Detail> {
                 icon: Icon(
                   Icons.add_circle_outline,
                   size: 30,
+                  color: Color(0xffe51937),
                 )
               ),
             ],
@@ -82,12 +91,12 @@ class _DetailState extends State<Detail> {
           Spacer(),
           Container(
             height: 70,
-            color: Colors.green[200],
+            color: Color(0xfff2f2f2),
             child: Row(
               children: [
                 TextButton(
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.green,
+                    backgroundColor: Color(0xffe51937),
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
                     fixedSize: Size(100, 70)
@@ -121,8 +130,8 @@ class _DetailState extends State<Detail> {
                   child: Text(
                     '주문하기',
                     style: TextStyle(
-                      backgroundColor: Colors.green[200],
-                      color: Colors.green,
+                      backgroundColor: Color(0xfff2f2f2),
+                      color: Color(0xffe51937),
                       fontSize: 30,
                       fontWeight: FontWeight.bold
                     ),

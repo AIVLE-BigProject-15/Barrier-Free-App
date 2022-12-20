@@ -35,9 +35,18 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin{
           );
         } else {
           return Scaffold(
-              appBar: AppBar(
-              title: Text('MENU'),
+            backgroundColor: Color(0xffffffff),
+            appBar: AppBar(
               elevation: 0.0,
+              backgroundColor: Color(0xffffffff),
+              foregroundColor: Color(0xffe51937),
+              title: Text(
+                'Menu',
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 25
+                ),
+              ),
             ),
             body: Column(
               children: [
@@ -51,7 +60,7 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin{
                     Container(
                       height: 50,
                       alignment: Alignment.center,
-                      child: Text('Non-Coffee', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                      child: Text('NonCoffee', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                     ),
                     Container(
                       height: 50,
@@ -60,11 +69,11 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin{
                     )
                   ],
                   indicator: BoxDecoration(
-                    color: Colors.green,
+                    color: Color(0xffe51937),
                   ),
                   controller: _tabController,
                   labelColor: Colors.white,
-                  unselectedLabelColor: Colors.green,
+                  unselectedLabelColor: Color(0xffe51937),
                 ),
 
                 Expanded(
@@ -96,7 +105,7 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin{
                                       ),
                                       Text(
                                         '${itemProvider.coffeeItems[index].price}원',
-                                        style: TextStyle(fontSize: 16, color: Colors.green, fontWeight: FontWeight.bold),
+                                        style: TextStyle(fontSize: 16, color: Color(0xffe51937), fontWeight: FontWeight.bold),
                                       ),
                                     ],
                                   ),
@@ -132,7 +141,7 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin{
                                       ),
                                       Text(
                                         '${itemProvider.nonCoffeeItems[index].price}원',
-                                        style: TextStyle(fontSize: 16, color: Colors.green, fontWeight: FontWeight.bold),
+                                        style: TextStyle(fontSize: 16, color: Color(0xffe51937), fontWeight: FontWeight.bold),
                                       ),
                                     ],
                                   ),
@@ -168,7 +177,7 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin{
                                       ),
                                       Text(
                                         '${itemProvider.breadItems[index].price}원',
-                                        style: TextStyle(fontSize: 16, color: Colors.green, fontWeight: FontWeight.bold),
+                                        style: TextStyle(fontSize: 16, color: Color(0xffe51937), fontWeight: FontWeight.bold),
                                       ),
                                     ],
                                   ),
@@ -184,10 +193,11 @@ class _MenuState extends State<Menu> with TickerProviderStateMixin{
               ],
               
             ),
-            floatingActionButton: Container(
+            floatingActionButton: SizedBox(
               height: 70,
               width: 70,
               child: FloatingActionButton(
+                backgroundColor: Color(0xffe51937),
                 onPressed:(){
                   Navigator.push(context, MaterialPageRoute(builder: (context) => Cart()));
                 },
