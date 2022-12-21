@@ -27,16 +27,16 @@ class _CameraForAgingState extends State<CameraForAging> {
     }
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false,);
+          },
+          color: Color(0xffe51937),
+          icon: Icon(Icons.arrow_back)
+        ),
         elevation: 0.0,
         backgroundColor: Color(0xfff2f2f2),
         foregroundColor: Color(0xffe51937),
-        title: Text(
-          'Back',
-          style: TextStyle(
-            fontWeight: FontWeight.w800,
-            fontSize: 25
-          ),
-        ),
       ),
       backgroundColor: Color(0xfff2f2f2),
       body: Center(
