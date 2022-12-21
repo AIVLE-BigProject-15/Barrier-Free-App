@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, file_names
 
 import 'package:flutter/material.dart';
-import 'package:kiosk/menu.dart';
+import 'package:kiosk/menu_drink.dart';
 
 class OrderType extends StatelessWidget {
   const OrderType({super.key});
@@ -11,11 +11,18 @@ class OrderType extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xfff2f2f2),
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushNamedAndRemoveUntil(context, '/camera', (route) => false,);
+          },
+          color: Color(0xffe51937),
+          icon: Icon(Icons.arrow_back)
+        ),
         elevation: 0.0,
         backgroundColor: Color(0xfff2f2f2),
         foregroundColor: Color(0xffe51937),
         title: Text(
-          'Camera',
+          'Order Type',
           style: TextStyle(
             fontWeight: FontWeight.w800,
             fontSize: 25
@@ -60,7 +67,7 @@ class OrderType extends StatelessWidget {
                   )
                 ),
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Menu()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MenuDrink()));
                 }, 
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -86,7 +93,7 @@ class OrderType extends StatelessWidget {
                   )
                 ),
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Menu()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MenuDrink()));
                 }, 
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

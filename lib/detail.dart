@@ -20,6 +20,7 @@ class _DetailState extends State<Detail> {
   Widget build(BuildContext context) {
     final item = ModalRoute.of(context)!.settings.arguments as Items;
     return Scaffold(
+      backgroundColor: Color(0xffffffff),
       appBar: AppBar(
               elevation: 0.0,
               backgroundColor: Color(0xffffffff),

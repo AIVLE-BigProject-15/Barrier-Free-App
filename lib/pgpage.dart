@@ -23,17 +23,17 @@ class _MyPgPage extends State<pgpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-              elevation: 0.0,
-              backgroundColor: Color(0xffffffff),
-              foregroundColor: Color(0xffe51937),
-              title: Text(
-                'Order',
-                style: TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontSize: 25
-                ),
-              ),
-            ),
+        elevation: 0.0,
+        backgroundColor: Color(0xffffffff),
+        foregroundColor: Color(0xffe51937),
+        title: Text(
+          'Order',
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 25
+          ),
+        ),
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 50.0),
