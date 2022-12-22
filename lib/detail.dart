@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'items.dart';
 import 'package:kiosk/controller.dart';
 import 'model_cart.dart';
-import 'package:kiosk/pgpage.dart';
+import 'package:kiosk/pay.dart';
 
 class Detail extends StatefulWidget {
   const Detail({super.key});
@@ -110,7 +110,6 @@ class _DetailState extends State<Detail> {
                         fixedSize: Size(100, 70)
                       ),
                       onPressed: () {
-                        CartModel.addCart(item.menu, controller.quantity, item.img, item.price);
                         Navigator.pushNamed(context, '/cart');
                       },
                       child: Text(
@@ -133,11 +132,11 @@ class _DetailState extends State<Detail> {
                     Spacer(),
                     TextButton(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => pgpage()));
+                        CartModel.addCart(item.menu, controller.quantity, item.img, item.price);
+                        // Navigator.pushNamed(context, '/cart');
                       },
                       child: Text(
-                        '결제하기',
+                        '담기',
                         style: TextStyle(
                           backgroundColor: Color(0xfff2f2f2),
                           color: Color(0xffe51937),

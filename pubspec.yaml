@@ -80,6 +80,11 @@ flutter:
     - assets/images/bread.png
     - assets/images/cake.png
     - assets/images/drink.png
+    - assets/images/naverPay.png
+    - assets/images/kakaoPay.png
+    - assets/images/cash.png
+    - assets/images/giftCard.png
+    - assets/images/barcode.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

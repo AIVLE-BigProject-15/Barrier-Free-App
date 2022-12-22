@@ -3,10 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'cartProvider.dart';
 import 'model_cart.dart';
-import 'pgpage.dart';
+import 'pay.dart';
+import 'controller.dart';
+import 'package:get/get.dart';
+import 'pay.dart';
 
-class Cart extends StatelessWidget {
+class Cart extends StatefulWidget{
   const Cart({super.key});
+
+  @override
+  State<Cart> createState() => _Cart();
+}
+
+class _Cart extends State<Cart> {
+  final controller = Get.put(CountController());
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +50,15 @@ class Cart extends StatelessWidget {
                   child: ListView.builder(
                     itemCount: cartItemProvider.cartItems.length,
                     itemBuilder: (BuildContext context, int index){
+                      controller.addTotal(cartItemProvider.cartItems[index].total);
+                      // CountController.addTotal(cartItemProvider.cartItems[index].total);
                       return Column(
                         children: [
                           Row(
                             children: [
                               Image.network(cartItemProvider.cartItems[index].img, width: 100, height: 100,),
                               Text(
-                                '${cartItemProvider.cartItems[index].menu} x${cartItemProvider.cartItems[index].quantity}',
+                                cartItemProvider.cartItems[index].menu,
                                 style: TextStyle(
                                   fontSize: 23,
                                   fontWeight: FontWeight.bold
@@ -66,7 +78,7 @@ class Cart extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Padding(padding: EdgeInsets.all(10)),
+                              Padding(padding: EdgeInsets.only(left: 10)),
                               Icon(Icons.subdirectory_arrow_right),
                               Text(
                                 '  수량: ${cartItemProvider.cartItems[index].quantity}개\t\t\t\t\t결제 금액: ${cartItemProvider.cartItems[index].total}원',
@@ -110,11 +122,12 @@ class Cart extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const pgpage()
+                                builder: (context) => const Pay()
                               )
                             );
                           }, 
                           child: Text(
+                            // '${controller.total}원 결제하기',
                             '결제하기',
                             style: TextStyle(
                               backgroundColor: Color(0xfff2f2f2),
@@ -129,9 +142,7 @@ class Cart extends StatelessWidget {
                   ),
                 )
               ],
-              
             ),
-
           );
         }
       },
