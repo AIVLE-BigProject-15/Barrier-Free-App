@@ -13,6 +13,7 @@ import 'menu_cake.dart';
 import 'menu_drink.dart';
 import 'orderType.dart';
 import 'camera.dart';
+import 'cart.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // main 함수에서 async 사용하기 위함
@@ -46,6 +47,7 @@ class kioskApp extends StatelessWidget {
           '/cake': (context) => MenuCake(),
           '/orderType': (context) => OrderType(),
           '/camera': (context) => CameraForAging(),
+          '/cart': (context) => Cart(),
         },
       )
     );
