@@ -35,8 +35,8 @@ class Cart extends StatelessWidget {
             ),
             body: Column(
               children: [
-                SizedBox(
-                  height: 300,
+                Expanded(
+                  flex: 9,
                   child: ListView.builder(
                     itemCount: cartItemProvider.cartItems.length,
                     itemBuilder: (BuildContext context, int index){
@@ -83,48 +83,49 @@ class Cart extends StatelessWidget {
                     },
                   ),
                 ),
-                Spacer(),
-                Container(
-                  height: 70,
-                  color: Color(0xfff2f2f2),
-                  child: Row(
-                    children: [
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: Color(0xffe51937),
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-                          fixedSize: Size(100, 70)
-                        ),
-                        onPressed: (){
-
-                        }, 
-                        child: Text(
-                          '메뉴추가',
-                          style: TextStyle(fontSize: 23, fontWeight: FontWeight.normal),
-                        )
-                      ),
-                      Spacer(),
-                      TextButton(
-                        onPressed: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const pgpage()
-                            )
-                          );
-                        }, 
-                        child: Text(
-                          '결제하기',
-                          style: TextStyle(
-                            backgroundColor: Color(0xfff2f2f2),
-                            color: Color(0xffe51937),
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    color: Color(0xfff2f2f2),
+                    child: Row(
+                      children: [
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            backgroundColor: Color(0xffe51937),
+                            foregroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+                            fixedSize: Size(100, 70)
                           ),
+                          onPressed: (){
+                            Navigator.pushNamedAndRemoveUntil(context, '/drink', (route) => false);
+                          }, 
+                          child: Text(
+                            '메뉴추가',
+                            style: TextStyle(fontSize: 23, fontWeight: FontWeight.normal),
+                          )
+                        ),
+                        Spacer(),
+                        TextButton(
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const pgpage()
+                              )
+                            );
+                          }, 
+                          child: Text(
+                            '결제하기',
+                            style: TextStyle(
+                              backgroundColor: Color(0xfff2f2f2),
+                              color: Color(0xffe51937),
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold
+                            ),
+                          )
                         )
-                      )
-                    ],
+                      ],
+                    ),
                   ),
                 )
               ],

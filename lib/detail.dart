@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers, prefer_const_declarations, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_declarations, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,112 +35,121 @@ class _DetailState extends State<Detail> {
             ),
       body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center, 
           children: [
-            Padding(padding: EdgeInsets.all(10)),
-            Image.network(item.img),
-            Padding(padding: EdgeInsets.all(10)),
-          Text(
-            item.menu,
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            '${item.price}원',
-            style: TextStyle(
-              fontSize: 20, 
-              fontWeight: FontWeight.bold, 
-              color: Color(0xffe51937)
-            ),
-          ),
-          Padding(padding: EdgeInsets.all(5)),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                onPressed: () {
-                  controller.remove();
-                },
-                icon: Icon(
-                  Icons.remove_circle_outline,
-                  size: 30,
-                  color: Color(0xffe51937),
-                )
-              ),
-              Obx(
-                () => Text(
-                  '${controller.quantity.value}',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                ),
-              ),
-              IconButton(
-                onPressed: () {
-                  controller.add();
-                },
-                icon: Icon(
-                  Icons.add_circle_outline,
-                  size: 30,
-                  color: Color(0xffe51937),
-                )
-              ),
-            ],
-          ),
-          Padding(padding: EdgeInsets.all(10)),
-          Text(
-            item.description,
-            style: TextStyle(fontSize: 20),
-          ),
-          Spacer(),
-          Container(
-            height: 70,
-            color: Color(0xfff2f2f2),
-            child: Row(
-              children: [
-                TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: Color(0xffe51937),
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-                    fixedSize: Size(100, 70)
+            Expanded(
+              flex: 9,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center, 
+                children: [
+                  Padding(padding: EdgeInsets.all(10)),
+                  Image.network(item.img),
+                  Padding(padding: EdgeInsets.all(10)),
+                  Text(
+                    item.menu,
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   ),
-                  onPressed: () {
-                    CartModel.addCart(item.menu, controller.quantity, item.img, item.price);
-                  },
-                  child: Text(
-                    '장바구니',
+                  Text(
+                    '${item.price}원',
                     style: TextStyle(
                       fontSize: 20, 
-                      fontWeight: FontWeight.normal
-                    ),
-                  )
-                ),
-                Obx(
-                  () => Text(
-                    '\t\t\t\t${(controller.quantity.value) * item.price}원',
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.bold, 
+                      color: Color(0xffe51937)
                     ),
                   ),
-                ),
-                Spacer(),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => pgpage()));
-                  },
-                  child: Text(
-                    '주문하기',
-                    style: TextStyle(
-                      backgroundColor: Color(0xfff2f2f2),
-                      color: Color(0xffe51937),
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold
-                    ),
-                  )
-                )
-              ],
+                  Padding(padding: EdgeInsets.all(5)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          controller.remove();
+                        },
+                        icon: Icon(
+                          Icons.remove_circle_outline,
+                          size: 30,
+                          color: Color(0xffe51937),
+                        )
+                      ),
+                      Obx(
+                        () => Text(
+                          '${controller.quantity.value}',
+                          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          controller.add();
+                        },
+                        icon: Icon(
+                          Icons.add_circle_outline,
+                          size: 30,
+                          color: Color(0xffe51937),
+                        )
+                      ),
+                    ],
+                  ),
+                  Padding(padding: EdgeInsets.all(10)),
+                  Text(
+                    item.description,
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ]
+              )
             ),
-            )
+            Expanded(
+              flex: 1,
+              child: Container(
+                color: Color(0xfff2f2f2),
+                child: Row(
+                  children: [
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: Color(0xffe51937),
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+                        fixedSize: Size(100, 70)
+                      ),
+                      onPressed: () {
+                        CartModel.addCart(item.menu, controller.quantity, item.img, item.price);
+                        Navigator.pushNamed(context, '/cart');
+                      },
+                      child: Text(
+                        '장바구니',
+                        style: TextStyle(
+                          fontSize: 20, 
+                          fontWeight: FontWeight.normal
+                        ),
+                      )
+                    ),
+                    Obx(
+                      () => Text(
+                        '\t\t\t\t${(controller.quantity.value) * item.price}원',
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Spacer(),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => pgpage()));
+                      },
+                      child: Text(
+                        '결제하기',
+                        style: TextStyle(
+                          backgroundColor: Color(0xfff2f2f2),
+                          color: Color(0xffe51937),
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold
+                        ),
+                      )
+                    )
+                  ],
+                ),
+              ),
+            ),
           ]
         ),
       ),
