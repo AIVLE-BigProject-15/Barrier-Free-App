@@ -133,8 +133,7 @@ class _CameraForAgingState extends State<CameraForAging> {
             )
           )
         ]
-      );
-          
+      );  
     }
   }
 }

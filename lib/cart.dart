@@ -6,7 +6,6 @@ import 'model_cart.dart';
 import 'pay.dart';
 import 'controller.dart';
 import 'package:get/get.dart';
-import 'pay.dart';
 
 class Cart extends StatefulWidget{
   const Cart({super.key});
@@ -51,7 +50,6 @@ class _Cart extends State<Cart> {
                     itemCount: cartItemProvider.cartItems.length,
                     itemBuilder: (BuildContext context, int index){
                       controller.addTotal(cartItemProvider.cartItems[index].total);
-                      // CountController.addTotal(cartItemProvider.cartItems[index].total);
                       return Column(
                         children: [
                           Row(
@@ -127,7 +125,6 @@ class _Cart extends State<Cart> {
                             );
                           }, 
                           child: Text(
-                            // '${controller.total}원 결제하기',
                             '결제하기',
                             style: TextStyle(
                               backgroundColor: Color(0xfff2f2f2),
