@@ -32,7 +32,6 @@ class _DetailState extends State<Detail> {
                 ),
               ),
             ),
-      // body: Center(
         body: Container(
           alignment: Alignment.topLeft,
           child: Column(
@@ -73,7 +72,6 @@ class _DetailState extends State<Detail> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              // SizedBox(width: 70,),
                               Text(
                                 '주문 수량',
                                 style: TextStyle(
@@ -157,7 +155,6 @@ class _DetailState extends State<Detail> {
                       TextButton(
                         onPressed: () {
                           CartModel.addCart(item.menu, controller.quantity, item.img, item.price);
-                          // Navigator.pushNamed(context, '/cart');
                         },
                         child: Text(
                           '담기',
@@ -176,7 +173,6 @@ class _DetailState extends State<Detail> {
             ]
           ),
         ),
-      // ),
     );
   }
 }
