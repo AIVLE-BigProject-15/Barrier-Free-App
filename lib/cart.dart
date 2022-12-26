@@ -49,7 +49,6 @@ class _Cart extends State<Cart> {
                   child: ListView.builder(
                     itemCount: cartItemProvider.cartItems.length,
                     itemBuilder: (BuildContext context, int index){
-                      controller.addTotal(cartItemProvider.cartItems[index].total);
                       return Column(
                         children: [
                           Row(
