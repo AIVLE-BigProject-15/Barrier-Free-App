@@ -24,7 +24,6 @@ void main() async {
 class kioskApp extends StatelessWidget {
   const kioskApp({super.key});
 
-  // Root widget
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
