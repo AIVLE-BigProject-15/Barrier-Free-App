@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types
 
+import 'package:kiosk/notification_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +33,7 @@ class kioskApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: GetMaterialApp(
+        initialBinding: BindingsBuilder.put(() => NotificationController(), permanent: true),
         debugShowCheckedModeBanner: false,
         title: 'Kiosk App',
         theme: ThemeData(
