@@ -19,7 +19,7 @@ class NotificationController extends GetxController {
     );
     print(settings.authorizationStatus);
     _getToken();
-    onMessage();
+    _onMessage();
     super.onInit();
   }
 
@@ -38,7 +38,7 @@ class NotificationController extends GetxController {
   );
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
-  void onMessage() async {
+  void _onMessage() async {
     await flutterLocalNotificationsPlugin.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()?.createNotificationChannel(channel);
     await flutterLocalNotificationsPlugin.initialize(
         const InitializationSettings(
