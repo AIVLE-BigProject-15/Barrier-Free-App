@@ -260,6 +260,33 @@ class _MenuDrinkState extends State<MenuDrink> with TickerProviderStateMixin{
                             elevation: 0.0
                           ),
                           onPressed: () {
+                            Navigator.pushNamedAndRemoveUntil(context, '/recom', (route) => false);
+                          }, 
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                'assets/images/star.png',
+                                color: Color(0xffe51937),
+                                scale: 13,
+                              ),
+                              Text(
+                                'Best',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Color(0xffe51937),
+                                  fontWeight: FontWeight.normal
+                                ),
+                              )
+                            ]
+                          ),
+                        ),
+                        SizedBox(height: 40,),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xfff2f2f2),
+                            elevation: 0.0
+                          ),
+                          onPressed: () {
                             
                           }, 
                           child: Column(

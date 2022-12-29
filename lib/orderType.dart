@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, file_names
 
 import 'package:flutter/material.dart';
-import 'package:kiosk/menu_drink.dart';
+import 'package:kiosk/menu_recom.dart';
 
 class OrderType extends StatelessWidget {
   const OrderType({super.key});
@@ -67,7 +67,7 @@ class OrderType extends StatelessWidget {
                   )
                 ),
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MenuDrink()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MenuRecom()));
                 }, 
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -93,7 +93,7 @@ class OrderType extends StatelessWidget {
                   )
                 ),
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MenuDrink()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MenuRecom()));
                 }, 
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

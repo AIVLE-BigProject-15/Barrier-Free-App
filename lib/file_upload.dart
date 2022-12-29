@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 import 'package:dio/dio.dart';
+String? ageDec;
 
 class FileApi {
   final _dio = Dio();
@@ -16,9 +17,8 @@ class FileApi {
       'http://10.0.2.2:8000/cafe/img_post',
       data: formData,
     );
-
-    final age_dec = response;
-    print(age_dec);
+    ageDec = response.toString();
+    print(ageDec);
     return response;
   }
 }

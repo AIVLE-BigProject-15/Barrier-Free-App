@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types
 
+import 'package:kiosk/menu_recom.dart';
 import 'package:kiosk/notification_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -49,6 +50,7 @@ class kioskApp extends StatelessWidget {
           '/orderType': (context) => OrderType(),
           '/camera': (context) => CameraForAging(),
           '/cart': (context) => Cart(),
+          '/recom': (context) => MenuRecom(),
         },
       )
     );

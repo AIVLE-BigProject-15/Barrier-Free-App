@@ -74,11 +74,6 @@ class _MenuCakeState extends State<MenuCake> with TickerProviderStateMixin{
                             alignment: Alignment.center,
                             child: Text('Piece', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                           ),
-                          // Container(
-                          //   height: 30,
-                          //   alignment: Alignment.center,
-                          //   child: Text('Bread', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                          // )
                         ],
                         indicator: ShapeDecoration(
                           shape: UnderlineInputBorder(
@@ -191,53 +186,6 @@ class _MenuCakeState extends State<MenuCake> with TickerProviderStateMixin{
                                 }
                               )
                             ),
-              
-                            // Container(
-                            //   child: GridView.builder(
-                            //     itemCount: itemProvider.breadItems.length,
-                            //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            //       crossAxisCount: 2, childAspectRatio: 1,
-                            //     ),
-                            //     itemBuilder: (BuildContext context, int index) {
-                            //       return GridTile(
-                            //         child: InkWell(
-                            //           onTap: (){
-                            //             Navigator.pushNamed(context, '/detail', 
-                            //             arguments: itemProvider.breadItems[index]);
-                            //           },
-                            //           child: Container(
-                            //             padding: EdgeInsets.all(10),
-                            //             child: Container(
-                            //               decoration: BoxDecoration(
-                            //                 border: Border.all(
-                            //                   color: Color(0xfff2f2f2),
-                            //                   width: 2
-                            //                 ),
-                            //                 borderRadius: BorderRadius.circular(5)
-                            //               ),
-                            //               child: Column(
-                            //                 crossAxisAlignment: CrossAxisAlignment.center,
-                            //                 children: [
-                            //                   Image.network(itemProvider.breadItems[index].img),
-                            //                   SizedBox(height: 6,),
-                            //                   Text(
-                            //                     itemProvider.breadItems[index].menu,
-                            //                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                            //                   ),
-                            //                   SizedBox(height: 3,),
-                            //                   Text(
-                            //                     '${itemProvider.breadItems[index].price}원',
-                            //                     style: TextStyle(fontSize: 13, color: Color(0xffe51937), fontWeight: FontWeight.bold),
-                            //                   ),
-                            //                 ],
-                            //               ),
-                            //             ),
-                            //           ),
-                            //         ),
-                            //       );
-                            //     }
-                            //   )
-                            // ),
                           ]
                         ),
                       ),
@@ -253,6 +201,33 @@ class _MenuCakeState extends State<MenuCake> with TickerProviderStateMixin{
                     child: Column(
                       children: [
                         SizedBox(height: 100,),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xfff2f2f2),
+                            elevation: 0.0
+                          ),
+                          onPressed: () {
+                            Navigator.pushNamedAndRemoveUntil(context, '/recom', (route) => false,);
+                          }, 
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                'assets/images/star.png',
+                                color: Colors.grey[500],
+                                scale: 13,
+                              ),
+                              Text(
+                                'Best',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.grey[500],
+                                  fontWeight: FontWeight.normal
+                                ),
+                              )
+                            ]
+                          ),
+                        ),
+                        SizedBox(height: 40,),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xfff2f2f2),

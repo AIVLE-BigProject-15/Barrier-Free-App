@@ -4,21 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'itemProvider.dart';
 import 'cart.dart';
+import 'file_upload.dart';
 
-class MenuBread extends StatefulWidget {
-  const MenuBread({super.key});
+class MenuRecom extends StatefulWidget {
+  const MenuRecom({super.key});
 
   @override
-  State<MenuBread> createState() => _MenuBreadState();
+  State<MenuRecom> createState() => _MenuRecomState();
 }
 
-class _MenuBreadState extends State<MenuBread> with TickerProviderStateMixin{
+class _MenuRecomState extends State<MenuRecom> with TickerProviderStateMixin{
   late TabController _tabController;
 
   @override
   void initState() {
     _tabController = TabController(
-      length: 2, vsync: this
+      length: 1, vsync: this
     );
     super.initState();
   }
@@ -26,10 +27,14 @@ class _MenuBreadState extends State<MenuBread> with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     final itemProvider = Provider.of<ItemProvider>(context);
+    var recomItems = itemProvider.age60Items;
+    // if (ageDec == '20대'){
+    //   var recomItems = itemProvider.age20Items;
+    // }
     return FutureBuilder(
       future: itemProvider.fetchItems(),
       builder: (context, snapshot) {
-        if (itemProvider.coffeeItems.length == 0) {
+        if (recomItems.length == 0) {
           return Center(
             child: CircularProgressIndicator(),
           );
@@ -67,12 +72,7 @@ class _MenuBreadState extends State<MenuBread> with TickerProviderStateMixin{
                           Container(
                             height: 30,
                             alignment: Alignment.center,
-                            child: Text('Bread', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                          ),
-                          Container(
-                            height: 30,
-                            alignment: Alignment.center,
-                            child: Text('Macaron', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                            child: Text('$ageDec 추천 메뉴', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                           ),
                         ],
                         indicator: ShapeDecoration(
@@ -95,7 +95,7 @@ class _MenuBreadState extends State<MenuBread> with TickerProviderStateMixin{
                           children: [
                             Container(
                               child: GridView.builder(
-                                itemCount: itemProvider.breadItems.length,
+                                itemCount: recomItems.length,
                                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2, childAspectRatio: 1,
                                 ),
@@ -104,7 +104,7 @@ class _MenuBreadState extends State<MenuBread> with TickerProviderStateMixin{
                                     child: InkWell(
                                       onTap: (){
                                         Navigator.pushNamed(context, '/detail', 
-                                        arguments: itemProvider.breadItems[index]);
+                                        arguments: recomItems[index]);
                                       },
                                       child: Container(
                                         padding: EdgeInsets.all(10),
@@ -119,62 +119,15 @@ class _MenuBreadState extends State<MenuBread> with TickerProviderStateMixin{
                                           child: Column(
                                             crossAxisAlignment: CrossAxisAlignment.center,
                                             children: [
-                                              Image.network(itemProvider.breadItems[index].img),
+                                              Image.network(recomItems[index].img),
                                               SizedBox(height: 6,),
                                               Text(
-                                                itemProvider.breadItems[index].menu,
+                                                recomItems[index].menu,
                                                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                                               ),
                                               SizedBox(height: 3,),
                                               Text(
-                                                '${itemProvider.breadItems[index].price}원',
-                                                style: TextStyle(fontSize: 13, color: Color(0xffe51937), fontWeight: FontWeight.bold),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                }
-                              )
-                            ),
-              
-                            Container(
-                              child: GridView.builder(
-                                itemCount: itemProvider.macaronItems.length,
-                                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2, childAspectRatio: 1,
-                                ),
-                                itemBuilder: (BuildContext context, int index) {
-                                  return GridTile(
-                                    child: InkWell(
-                                      onTap: (){
-                                        Navigator.pushNamed(context, '/detail', 
-                                        arguments: itemProvider.macaronItems[index]);
-                                      },
-                                      child: Container(
-                                        padding: EdgeInsets.all(10),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: Color(0xfff2f2f2),
-                                              width: 2
-                                            ),
-                                            borderRadius: BorderRadius.circular(5)
-                                          ),
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                            children: [
-                                              Image.network(itemProvider.macaronItems[index].img),
-                                              SizedBox(height: 6,),
-                                              Text(
-                                                itemProvider.macaronItems[index].menu,
-                                                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                                              ),
-                                              SizedBox(height: 3,),
-                                              Text(
-                                                '${itemProvider.macaronItems[index].price}원',
+                                                '${recomItems[index].price}원',
                                                 style: TextStyle(fontSize: 13, color: Color(0xffe51937), fontWeight: FontWeight.bold),
                                               ),
                                             ],
@@ -207,20 +160,20 @@ class _MenuBreadState extends State<MenuBread> with TickerProviderStateMixin{
                             elevation: 0.0
                           ),
                           onPressed: () {
-                            Navigator.pushNamedAndRemoveUntil(context, '/recom', (route) => false,);
+                            
                           }, 
                           child: Column(
                             children: [
                               Image.asset(
                                 'assets/images/star.png',
-                                color: Colors.grey[500],
+                                color: Color(0xffe51937),
                                 scale: 13,
                               ),
                               Text(
                                 'Best',
                                 style: TextStyle(
                                   fontSize: 20,
-                                  color: Colors.grey[500],
+                                  color: Color(0xffe51937),
                                   fontWeight: FontWeight.normal
                                 ),
                               )
@@ -234,7 +187,7 @@ class _MenuBreadState extends State<MenuBread> with TickerProviderStateMixin{
                             elevation: 0.0
                           ),
                           onPressed: () {
-                            Navigator.pushNamedAndRemoveUntil(context, '/drink', (route) => false,);
+                            Navigator.pushNamedAndRemoveUntil(context, '/drink', (route) => false);
                           }, 
                           child: Column(
                             children: [
@@ -246,7 +199,7 @@ class _MenuBreadState extends State<MenuBread> with TickerProviderStateMixin{
                               Text(
                                 'Drink',
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 18,
                                   color: Colors.grey[500],
                                   fontWeight: FontWeight.normal
                                 ),
@@ -261,20 +214,20 @@ class _MenuBreadState extends State<MenuBread> with TickerProviderStateMixin{
                             elevation: 0.0
                           ),
                           onPressed: () {
-                            
+                            Navigator.pushNamedAndRemoveUntil(context, '/bread', (route) => false);
                           }, 
                           child: Column(
                             children: [
                               Image.asset(
                                 'assets/images/bread.png',
-                                color: Color(0xffe51937),
+                                color: Colors.grey[500],
                                 scale: 13,
                               ),
                               Text(
                                 'Bread',
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: Color(0xffe51937),
+                                  color: Colors.grey[500],
                                   fontWeight: FontWeight.normal
                                 ),
                               )
