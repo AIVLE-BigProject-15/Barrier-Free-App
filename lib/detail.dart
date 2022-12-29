@@ -50,32 +50,35 @@ class _DetailState extends State<Detail> {
                       ),
                       child: Image.network(item.img)
                     ),
+                    SizedBox(height: 10,),
                     Padding(padding: EdgeInsets.all(10)),
                     Container(
-                      alignment: Alignment.topLeft,
+                      padding: EdgeInsets.only(left: 10),
+                      alignment: Alignment.center,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
                             item.menu,
-                            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                           ),
                           Text(
                             '${item.price}원',
                             style: TextStyle(
-                              fontSize: 20, 
+                              fontSize: 30, 
                               fontWeight: FontWeight.bold, 
                               color: Color(0xffe51937)
                             ),
                           ),
                           Padding(padding: EdgeInsets.all(5)),
                           Row(
+                            
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                '주문 수량',
+                                '주문 수량\t\t',
                                 style: TextStyle(
-                                  fontSize: 25,
+                                  fontSize: 30,
                                   fontWeight: FontWeight.bold
                                 ),
                               ),
@@ -92,7 +95,7 @@ class _DetailState extends State<Detail> {
                               Obx(
                                 () => Text(
                                   '${controller.quantity.value}',
-                                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                                 ),
                               ),
                               IconButton(
@@ -108,9 +111,11 @@ class _DetailState extends State<Detail> {
                             ],
                           ),
                           Padding(padding: EdgeInsets.all(10)),
+                          Divider(color: Colors.grey[500], thickness: 1.5, endIndent: 10),
+                          Padding(padding: EdgeInsets.all(10)),
                           Text(
                             item.description,
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(fontSize: 25),
                           ),
                         ],
                       ),
@@ -137,7 +142,7 @@ class _DetailState extends State<Detail> {
                         child: Text(
                           '장바구니',
                           style: TextStyle(
-                            fontSize: 20, 
+                            fontSize: 23, 
                             fontWeight: FontWeight.normal
                           ),
                         )

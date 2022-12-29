@@ -7,6 +7,8 @@ import 'pay.dart';
 import 'controller.dart';
 import 'package:get/get.dart';
 
+int totalPrice = 0;
+
 class Cart extends StatefulWidget{
   const Cart({super.key});
 
@@ -24,8 +26,40 @@ class _Cart extends State<Cart> {
       future: cartItemProvider.fetchItems(),
       builder: (context, snapshot) {
         if (cartItemProvider.cartItems.isEmpty){
-          return Center(
-            child: CircularProgressIndicator(),
+          return Scaffold(
+            backgroundColor: Color(0xffffffff),
+            appBar: AppBar(
+              elevation: 0.0,
+              backgroundColor: Color(0xffffffff),
+              foregroundColor: Color(0xffe51937),
+              title: Text(
+                'Cart',
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 25
+                ),
+              ),
+            ),
+            body: Center(
+              child: Column(
+                children: [
+                  SizedBox(height: 30,),
+                  Icon(
+                    Icons.do_not_disturb, 
+                    color: Color(0xfff2f2f2),
+                    size: 400,
+                  ),
+                  Text(
+                    '장바구니가 비어있습니다.',
+                    style: TextStyle(
+                      color: Colors.grey[500],
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold
+                    ),
+                  )
+                ],
+              ),
+            )
           );
         } else {
           return Scaffold(
@@ -53,11 +87,11 @@ class _Cart extends State<Cart> {
                         children: [
                           Row(
                             children: [
-                              Image.network(cartItemProvider.cartItems[index].img, width: 100, height: 100,),
+                              Image.network(cartItemProvider.cartItems[index].img, width: 150, height: 100,),
                               Text(
                                 cartItemProvider.cartItems[index].menu,
                                 style: TextStyle(
-                                  fontSize: 23,
+                                  fontSize: 25,
                                   fontWeight: FontWeight.bold
                                 ),
                               ),
@@ -66,7 +100,7 @@ class _Cart extends State<Cart> {
                                 onPressed: (){
                                   CartModel.delCart(cartItemProvider.cartItems[index].menu);
                                 },
-                                icon: Icon(Icons.delete_forever),
+                                icon: Icon(Icons.delete_forever, size: 40,),
                                 iconSize: 40,
                                 color: Colors.grey[400],
                               )
@@ -76,17 +110,18 @@ class _Cart extends State<Cart> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Padding(padding: EdgeInsets.only(left: 10)),
-                              Icon(Icons.subdirectory_arrow_right),
+                              Icon(Icons.subdirectory_arrow_right, size: 25),
                               Text(
                                 '  수량: ${cartItemProvider.cartItems[index].quantity}개\t\t\t\t\t결제 금액: ${cartItemProvider.cartItems[index].total}원',
                                 style: TextStyle(
-                                  fontSize: 17
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],
                           ),
                           SizedBox(height: 15),
-                          Divider(thickness: 1.0, indent: 0.0),
+                          Divider(thickness: 3.0, indent: 0.0),
                         ],
                       );
                     },
@@ -124,7 +159,7 @@ class _Cart extends State<Cart> {
                             );
                           }, 
                           child: Text(
-                            '결제하기',
+                            '${controller.totalPrice.value}원 결제하기',
                             style: TextStyle(
                               backgroundColor: Color(0xfff2f2f2),
                               color: Color(0xffe51937),

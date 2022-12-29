@@ -20,5 +20,5 @@ class CartProvider with ChangeNotifier {
       }).toList();
     });
     notifyListeners();
-  }
+  } 
 }
