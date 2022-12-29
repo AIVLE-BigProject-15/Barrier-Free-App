@@ -27,10 +27,20 @@ class _MenuRecomState extends State<MenuRecom> with TickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     final itemProvider = Provider.of<ItemProvider>(context);
-    var recomItems = itemProvider.age60Items;
-    // if (ageDec == '20대'){
-    //   var recomItems = itemProvider.age20Items;
-    // }
+    var recomItems = [];
+    if (ageDec == '20대' || ageDec == '10대'){
+      recomItems = itemProvider.age20Items;
+      ageDec = '20대 이하';
+    } else if (ageDec == '30대'){
+      recomItems = itemProvider.age30Items;
+    } else if (ageDec == '40대' || ageDec == '50대'){
+      recomItems = itemProvider.age40Items;
+    } else if (ageDec == '60대 이상'){
+      recomItems = itemProvider.age60Items;
+    } else {
+      recomItems = itemProvider.age20Items;
+    }
+
     return FutureBuilder(
       future: itemProvider.fetchItems(),
       builder: (context, snapshot) {

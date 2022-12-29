@@ -266,14 +266,14 @@ class _MenuDrinkState extends State<MenuDrink> with TickerProviderStateMixin{
                             children: [
                               Image.asset(
                                 'assets/images/star.png',
-                                color: Color(0xffe51937),
+                                color: Colors.grey[500],
                                 scale: 13,
                               ),
                               Text(
                                 'Best',
                                 style: TextStyle(
                                   fontSize: 20,
-                                  color: Color(0xffe51937),
+                                  color: Colors.grey[500],
                                   fontWeight: FontWeight.normal
                                 ),
                               )
