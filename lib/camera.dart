@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'orderType.dart';
+import 'file_upload.dart';
 
 class CameraForAging extends StatefulWidget {
   const CameraForAging({super.key});
@@ -14,6 +15,7 @@ class CameraForAging extends StatefulWidget {
 
 class _CameraForAgingState extends State<CameraForAging> {
   File? _img;
+  late String _img_path;
   final picker = ImagePicker();
 
   @override
@@ -23,13 +25,18 @@ class _CameraForAgingState extends State<CameraForAging> {
 
       setState(() {
         _img = File(pickedFile!.path);
+        _img_path = pickedFile.path;
       });
     }
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false,);
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              '/',
+              (route) => false,
+            );
           },
           color: Color(0xffe51937),
           icon: Icon(Icons.arrow_back)
@@ -115,14 +122,13 @@ class _CameraForAgingState extends State<CameraForAging> {
               backgroundColor: Color(0xffffffff),
               foregroundColor: Colors.black
             ),
-            onPressed: (){
-              Navigator.push(
-                context, 
-                MaterialPageRoute(
-                  builder: (context) => const OrderType()
-                )
-              );
-            }, 
+            onPressed: () async {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const OrderType()));
+              final _file_upload = FileApi();
+              final bytes = await File(_img_path.toString()).readAsBytesSync();
+              await _file_upload.uploadImage(bytes.buffer.asUint8List());
+            },
             child: Text(
               '사진 선택 완료!',
               style: TextStyle(
