@@ -160,6 +160,32 @@ class _DetailState extends State<Detail> {
                       TextButton(
                         onPressed: () {
                           CartModel.addCart(item.menu, controller.quantity, item.img, item.price);
+                          showDialog(
+                            context: context, 
+                            builder: (BuildContext ctx) {
+                              return AlertDialog(
+                                title: Text(
+                                  '담기 완료!',
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                actions: [
+                                  ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Color(0xffe51937),
+                                                                            
+                                    ),
+                                    onPressed: (){
+                                      Navigator.of(context).pop();
+                                    }, 
+                                    child: Text('확인', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                                  )
+                                ],
+                              );
+                            }
+                          );
                         },
                         child: Text(
                           '담기',
