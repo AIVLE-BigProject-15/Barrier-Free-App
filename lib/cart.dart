@@ -7,8 +7,6 @@ import 'pay.dart';
 import 'controller.dart';
 import 'package:get/get.dart';
 
-int totalPrice = 0;
-
 class Cart extends StatefulWidget{
   const Cart({super.key});
 
@@ -159,7 +157,7 @@ class _Cart extends State<Cart> {
                             );
                           }, 
                           child: Text(
-                            '${controller.totalPrice.value}원 결제하기',
+                            '결제하기',
                             style: TextStyle(
                               backgroundColor: Color(0xfff2f2f2),
                               color: Color(0xffe51937),
