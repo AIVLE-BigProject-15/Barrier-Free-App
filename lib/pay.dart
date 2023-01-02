@@ -7,6 +7,8 @@ import 'package:bootpay/model/item.dart';
 import 'package:bootpay/model/payload.dart';
 import 'package:bootpay/model/user.dart';
 import 'package:flutter/foundation.dart';
+import 'package:provider/provider.dart';
+import 'cartProvider.dart';
 
 class Pay extends StatefulWidget {
   const Pay({super.key});
@@ -19,8 +21,17 @@ class _MyPgPage extends State<Pay> {
   String webApplicationId = '5b8f6a4d396fa665fdc2b5e7';
   String androidApplicationId = '5b8f6a4d396fa665fdc2b5e8';
   String iosApplicationId = '5b8f6a4d396fa665fdc2b5e9';
+
+  // var totalPrice = Cart.totalPrice;
   @override
   Widget build(BuildContext context) {
+
+  final cartItemProvider = Provider.of<CartProvider>(context);
+  int totalPrice = 0;
+  for (int i=0; i<cartItemProvider.cartItems.length;i++){
+    totalPrice += cartItemProvider.cartItems[i].total;
+  }
+
     return Scaffold(
       backgroundColor: Color(0xffffffff),
       appBar: AppBar(
@@ -52,7 +63,7 @@ class _MyPgPage extends State<Pay> {
                 ),
                 Spacer(),
                 Text(
-                  '0원',
+                  '$totalPrice원',
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
@@ -264,17 +275,17 @@ class _MyPgPage extends State<Pay> {
   Payload getPayload(String pg, String method) {
     Payload payload = Payload();
     Item item1 = Item();
-    item1.name = "아이스 아메리카노"; // 주문정보에 담길 상품명
+    item1.name = "HOT 아메리카노"; // 주문정보에 담길 상품명
     item1.qty = 1; // 해당 상품의 주문 수량
     item1.id = "ITEM_CODE_MOUSE"; // 해당 상품의 고유 키
-    item1.price = 4000; // 상품의 가격
+    item1.price = 2500; // 상품의 가격
 
-    Item item2 = Item();
-    item2.name = "초코라떼"; // 주문정보에 담길 상품명
-    item2.qty = 1; // 해당 상품의 주문 수량
-    item2.id = "ITEM_CODE_KEYBOARD"; // 해당 상품의 고유 키
-    item2.price = 4000; // 상품의 가격
-    List<Item> itemList = [item1, item2];
+    // Item item2 = Item();
+    // item2.name = "초코라떼"; // 주문정보에 담길 상품명
+    // item2.qty = 1; // 해당 상품의 주문 수량
+    // item2.id = "ITEM_CODE_KEYBOARD"; // 해당 상품의 고유 키
+    // item2.price = 4000; // 상품의 가격
+    List<Item> itemList = [item1];
 
     payload.webApplicationId = webApplicationId; // web application id
     payload.androidApplicationId =
@@ -284,8 +295,8 @@ class _MyPgPage extends State<Pay> {
     payload.pg = pg;
     payload.method = method;
     // payload.methods = ['card', 'phone', 'vbank', 'bank', 'kakao'];
-    payload.orderName = "아이스 아메리카노"; //결제할 상품명
-    payload.price = 8000.0; //정기결제시 0 혹은 주석
+    payload.orderName = "HOT 아메리카노"; //결제할 상품명
+    payload.price = 7500; //정기결제시 0 혹은 주석
 
     payload.orderId = DateTime.now()
         .millisecondsSinceEpoch

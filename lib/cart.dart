@@ -60,6 +60,10 @@ class _Cart extends State<Cart> {
             )
           );
         } else {
+          int totalPrice = 0;
+          for (int i=0; i<cartItemProvider.cartItems.length;i++){
+            totalPrice += cartItemProvider.cartItems[i].total;
+          }
           return Scaffold(
             backgroundColor: Color(0xffffffff),
             appBar: AppBar(
@@ -81,6 +85,8 @@ class _Cart extends State<Cart> {
                   child: ListView.builder(
                     itemCount: cartItemProvider.cartItems.length,
                     itemBuilder: (BuildContext context, int index){
+                      // int totalPrice = 0;
+                      // totalPrice += cartItemProvider.cartItems[index].price;
                       return Column(
                         children: [
                           Row(
@@ -157,7 +163,7 @@ class _Cart extends State<Cart> {
                             );
                           }, 
                           child: Text(
-                            '결제하기',
+                            '$totalPrice원 결제하기',
                             style: TextStyle(
                               backgroundColor: Color(0xfff2f2f2),
                               color: Color(0xffe51937),
