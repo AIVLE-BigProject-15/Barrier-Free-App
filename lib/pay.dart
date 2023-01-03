@@ -22,7 +22,6 @@ class _MyPgPage extends State<Pay> {
   String androidApplicationId = '5b8f6a4d396fa665fdc2b5e8';
   String iosApplicationId = '5b8f6a4d396fa665fdc2b5e9';
 
-  // var totalPrice = Cart.totalPrice;
   @override
   Widget build(BuildContext context) {
 

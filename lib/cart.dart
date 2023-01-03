@@ -85,8 +85,6 @@ class _Cart extends State<Cart> {
                   child: ListView.builder(
                     itemCount: cartItemProvider.cartItems.length,
                     itemBuilder: (BuildContext context, int index){
-                      // int totalPrice = 0;
-                      // totalPrice += cartItemProvider.cartItems[index].price;
                       return Column(
                         children: [
                           Row(

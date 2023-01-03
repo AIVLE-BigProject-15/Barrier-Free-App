@@ -53,62 +53,60 @@ class OrderType extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              ElevatedButton(
-                style: (
-                  ElevatedButton.styleFrom(
-                    foregroundColor: Colors.black,
-                    backgroundColor: Color(0xffffffff),
-                    elevation: 1.5,
-                    fixedSize: Size(150, 150),
-                    textStyle: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                ElevatedButton(
+                  style: (
+                    ElevatedButton.styleFrom(
+                      foregroundColor: Colors.black,
+                      backgroundColor: Color(0xffffffff),
+                      elevation: 1.5,
+                      fixedSize: Size(150, 150),
+                      textStyle: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      )
                     )
+                  ),
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const MenuRecom()));
+                  }, 
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/images/shoppingBag.png', width: 100, height: 100,),
+                      Text('방문포장')
+                    ],
                   )
                 ),
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MenuRecom()));
-                }, 
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    Image.asset('assets/images/shoppingBag.png', width: 100, height: 100,),
-                    Text('방문포장')
-                  ],
-                )
-              ),
-              SizedBox(width: 20,),
-              ElevatedButton(
-                style: (
-                  ElevatedButton.styleFrom(
-                    foregroundColor: Colors.black,
-                    backgroundColor: Color(0xffffffff),
-                    elevation: 1.5,
-                    fixedSize: Size(150, 150),
-                    textStyle: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                SizedBox(width: 20,),
+                ElevatedButton(
+                  style: (
+                    ElevatedButton.styleFrom(
+                      foregroundColor: Colors.black,
+                      backgroundColor: Color(0xffffffff),
+                      elevation: 1.5,
+                      fixedSize: Size(150, 150),
+                      textStyle: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      )
                     )
+                  ),
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const MenuRecom()));
+                  }, 
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/images/fork.png', width: 100, height: 100,),
+                      Text('매장식사')
+                    ],
                   )
                 ),
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const MenuRecom()));
-                }, 
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    Image.asset('assets/images/fork.png', width: 100, height: 100,),
-                    Text('매장식사')
-                  ],
-                )
-              ),
               ],
             )
-              ]
-            )
-        ),
+          ]
+        )
+      ),
     );
   }
 }

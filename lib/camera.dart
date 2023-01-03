@@ -15,7 +15,7 @@ class CameraForAging extends StatefulWidget {
 
 class _CameraForAgingState extends State<CameraForAging> {
   File? _img;
-  late String _img_path;
+  late String _imgPath;
   final picker = ImagePicker();
 
   @override
@@ -25,7 +25,7 @@ class _CameraForAgingState extends State<CameraForAging> {
 
       setState(() {
         _img = File(pickedFile!.path);
-        _img_path = pickedFile.path;
+        _imgPath = pickedFile.path;
       });
     }
     return Scaffold(
@@ -125,9 +125,9 @@ class _CameraForAgingState extends State<CameraForAging> {
             onPressed: () async {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const OrderType()));
-              final _file_upload = FileApi();
-              final bytes = await File(_img_path.toString()).readAsBytesSync();
-              await _file_upload.uploadImage(bytes.buffer.asUint8List());
+              final fileUpload = FileApi();
+              final bytes = File(_imgPath.toString()).readAsBytesSync();
+              await fileUpload.uploadImage(bytes.buffer.asUint8List());
             },
             child: Text(
               '사진 선택 완료!',

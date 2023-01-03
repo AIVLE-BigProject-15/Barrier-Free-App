@@ -1,4 +1,6 @@
 // import 'package:bootpay/model/payload.dart';
+// ignore_for_file: avoid_print
+
 import 'package:get/get.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -27,7 +29,7 @@ class NotificationController extends GetxController {
     String? token = await messaging.getToken();
     try{
       print(token);
-    } catch(e) {}
+    } catch(e) {print('에러발생!');}
   }
 
   final AndroidNotificationChannel channel = const AndroidNotificationChannel(
@@ -63,14 +65,6 @@ class NotificationController extends GetxController {
             ),
           ),
         );
-      }
-      // 개발 확인 용으로 print 구문 추가
-      print('foreground 상황에서 메시지를 받았다.');
-      // 데이터 유무 확인
-      print('Message data: ${message.data}');
-      // notification 유무 확인
-      if (message.notification != null) {
-        print('Message also contained a notification: ${message.notification!.body}');
       }
     });
   }
