@@ -1,6 +1,8 @@
 
 # Kiosk-App 
 **💚 AIVLE School Big-Project 💚**
+
+모바일 어플리케이션 파트 📱
 <br>
 <br>
 
